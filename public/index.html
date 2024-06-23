@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <style>
+                              .bg {
+                          animation:slide 3s ease-in-out infinite alternate;
+                          background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+                          bottom:0;
+                          left:-50%;
+                          opacity:.5;
+                          position:fixed;
+                          right:-50%;
+                          top:0;
+                          z-index:-1;
+                        }
+
+                        .bg2 {
+                          animation-direction:alternate-reverse;
+                          animation-duration:4s;
+                        }
+
+                        .bg3 {
+                          animation-duration:5s;
+                        }
+
+                        @keyframes slide {
+                          0% {
+                            transform:translateX(-25%);
+                          }
+                          100% {
+                            transform:translateX(25%);
+                          }
+                        }
+                        .card {
+                          background-color: transparent;
+
+                                  perspective: 1000px;
+                        }
+                        .flip-card-inner {
+                                  position: relative;
+                                  width: 100%;
+                                  height: 100%;
+                                  text-align: center;
+                                  transition: transform 0.8s;
+                                  transform-style: preserve-3d;
+                              }
+
+
+                              .flip-card-front, .flip-card-back {
+                                  position: absolute;
+                                  width: 100%;
+                                  height: 100%;
+                                  display: flex;
+                                  justify-content: center;
+                                  align-items: center;
+                                  backface-visibility: hidden;
+                                  -webkit-backface-visibility: hidden; /* Safari */
+                              }
+
+                              .flip-card-front {
+                                  background-color: #bbb;
+                                  color: black;
+                              }
+
+                              .flip-card-back {
+                                  background-color: #7dc2ef;
+                                  color: white;
+                                  transform: rotateY(180deg);
+                              }
+                          .flip-card-inner.flipped {
+                            transform: rotateY(180deg);
+                        }
+                        .bg-win {
+                          animation:slide 3s ease-in-out infinite alternate;
+                          background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+                          bottom:0;
+                          left:-50%;
+                          opacity:.5;
+                          position:fixed;
+                          right:-50%;
+                          top:0;
+                          z-index:-1;
+                        }
+                        body {
+            	 margin: 0;
+            	 padding: 0;
+            	 background: #000;
+            	 overflow: hidden;
+            }
+             .pyro > .before, .pyro > .after {
+              z-index: 1;
+            	 position: absolute;
+            	 width: 5px;
+            	 height: 5px;
+               top: 0;
+               left: 0;
+            	 border-radius: 50%;
+            	 box-shadow:  0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff;
+            	 -moz-animation: 1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+            	 -webkit-animation: 1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+            	 -o-animation: 1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+            	 -ms-animation: 1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+            	 animation: 1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+            }
+             .pyro > .after {
+            	 -moz-animation-delay: 1.25s, 1.25s, 1.25s;
+            	 -webkit-animation-delay: 1.25s, 1.25s, 1.25s;
+            	 -o-animation-delay: 1.25s, 1.25s, 1.25s;
+            	 -ms-animation-delay: 1.25s, 1.25s, 1.25s;
+            	 animation-delay: 1.25s, 1.25s, 1.25s;
+            	 -moz-animation-duration: 1.25s, 1.25s, 6.25s;
+            	 -webkit-animation-duration: 1.25s, 1.25s, 6.25s;
+            	 -o-animation-duration: 1.25s, 1.25s, 6.25s;
+            	 -ms-animation-duration: 1.25s, 1.25s, 6.25s;
+            	 animation-duration: 1.25s, 1.25s, 6.25s;
+            }
+             @-webkit-keyframes bang {
+            	 to {
+            		 box-shadow:  -36px -208.6666666667px #ff0095, -36px -285.6666666667px #3f0, -4px -64.6666666667px #f2ff00, -212px -120.6666666667px #ae00ff, 146px -260.6666666667px #00eaff, -115px -290.6666666667px #5f0, 157px -362.6666666667px #4000ff, -96px -341.6666666667px #00e6ff, 193px 51.3333333333px #ff0400, -50px -44.6666666667px #0062ff, -185px -176.6666666667px #62ff00, -233px 38.3333333333px #0400ff, -142px 53.3333333333px #f200ff, -201px -214.6666666667px #0df, -41px -285.6666666667px #4800ff, 127px -315.6666666667px #ff00fb, 142px -87.6666666667px #6200ff, -149px -414.6666666667px #f200ff, -119px -89.6666666667px #00ff51, 243px 31.3333333333px #00ff1a, -130px -274.6666666667px #00fffb, 226px -227.6666666667px #0091ff, -197px -185.6666666667px #00ffd0, -185px -411.6666666667px #00c8ff, -160px 51.3333333333px #00a6ff, 146px -331.6666666667px #f09, 90px -43.6666666667px #00fff7, -237px -91.6666666667px #f0a, -194px -206.6666666667px #b3ff00, -196px -158.6666666667px #ffd900, -147px -291.6666666667px #ff8c00, 1px 63.3333333333px #000dff, 37px -334.6666666667px #fff200, 176px 57.3333333333px #00ffc8, 49px -293.6666666667px #c800ff, -18px 44.3333333333px #06f, 21px -248.6666666667px #ff001a, 185px -216.6666666667px #a6ff00, -10px -5.6666666667px #eaff00, 115px -172.6666666667px #2a00ff, -45px 60.3333333333px #00d0ff, 225px -151.6666666667px #fffb00, -87px -154.6666666667px #ffd000, 33px -342.6666666667px #ff00fb, 59px -84.6666666667px #fe0, 96px -394.6666666667px #00e6ff, 233px 19.3333333333px #00ffc8, 41px -259.6666666667px #00ff15, -186px -210.6666666667px #00ff9d, -6px -89.6666666667px #00b7ff, 43px -76.6666666667px #c4ff00;
+            	}
+            }
+             @-moz-keyframes bang {
+            	 to {
+            		 box-shadow:  -36px -208.6666666667px #ff0095, -36px -285.6666666667px #3f0, -4px -64.6666666667px #f2ff00, -212px -120.6666666667px #ae00ff, 146px -260.6666666667px #00eaff, -115px -290.6666666667px #5f0, 157px -362.6666666667px #4000ff, -96px -341.6666666667px #00e6ff, 193px 51.3333333333px #ff0400, -50px -44.6666666667px #0062ff, -185px -176.6666666667px #62ff00, -233px 38.3333333333px #0400ff, -142px 53.3333333333px #f200ff, -201px -214.6666666667px #0df, -41px -285.6666666667px #4800ff, 127px -315.6666666667px #ff00fb, 142px -87.6666666667px #6200ff, -149px -414.6666666667px #f200ff, -119px -89.6666666667px #00ff51, 243px 31.3333333333px #00ff1a, -130px -274.6666666667px #00fffb, 226px -227.6666666667px #0091ff, -197px -185.6666666667px #00ffd0, -185px -411.6666666667px #00c8ff, -160px 51.3333333333px #00a6ff, 146px -331.6666666667px #f09, 90px -43.6666666667px #00fff7, -237px -91.6666666667px #f0a, -194px -206.6666666667px #b3ff00, -196px -158.6666666667px #ffd900, -147px -291.6666666667px #ff8c00, 1px 63.3333333333px #000dff, 37px -334.6666666667px #fff200, 176px 57.3333333333px #00ffc8, 49px -293.6666666667px #c800ff, -18px 44.3333333333px #06f, 21px -248.6666666667px #ff001a, 185px -216.6666666667px #a6ff00, -10px -5.6666666667px #eaff00, 115px -172.6666666667px #2a00ff, -45px 60.3333333333px #00d0ff, 225px -151.6666666667px #fffb00, -87px -154.6666666667px #ffd000, 33px -342.6666666667px #ff00fb, 59px -84.6666666667px #fe0, 96px -394.6666666667px #00e6ff, 233px 19.3333333333px #00ffc8, 41px -259.6666666667px #00ff15, -186px -210.6666666667px #00ff9d, -6px -89.6666666667px #00b7ff, 43px -76.6666666667px #c4ff00;
+            	}
+            }
+             @-o-keyframes bang {
+            	 to {
+            		 box-shadow:  -36px -208.6666666667px #ff0095, -36px -285.6666666667px #3f0, -4px -64.6666666667px #f2ff00, -212px -120.6666666667px #ae00ff, 146px -260.6666666667px #00eaff, -115px -290.6666666667px #5f0, 157px -362.6666666667px #4000ff, -96px -341.6666666667px #00e6ff, 193px 51.3333333333px #ff0400, -50px -44.6666666667px #0062ff, -185px -176.6666666667px #62ff00, -233px 38.3333333333px #0400ff, -142px 53.3333333333px #f200ff, -201px -214.6666666667px #0df, -41px -285.6666666667px #4800ff, 127px -315.6666666667px #ff00fb, 142px -87.6666666667px #6200ff, -149px -414.6666666667px #f200ff, -119px -89.6666666667px #00ff51, 243px 31.3333333333px #00ff1a, -130px -274.6666666667px #00fffb, 226px -227.6666666667px #0091ff, -197px -185.6666666667px #00ffd0, -185px -411.6666666667px #00c8ff, -160px 51.3333333333px #00a6ff, 146px -331.6666666667px #f09, 90px -43.6666666667px #00fff7, -237px -91.6666666667px #f0a, -194px -206.6666666667px #b3ff00, -196px -158.6666666667px #ffd900, -147px -291.6666666667px #ff8c00, 1px 63.3333333333px #000dff, 37px -334.6666666667px #fff200, 176px 57.3333333333px #00ffc8, 49px -293.6666666667px #c800ff, -18px 44.3333333333px #06f, 21px -248.6666666667px #ff001a, 185px -216.6666666667px #a6ff00, -10px -5.6666666667px #eaff00, 115px -172.6666666667px #2a00ff, -45px 60.3333333333px #00d0ff, 225px -151.6666666667px #fffb00, -87px -154.6666666667px #ffd000, 33px -342.6666666667px #ff00fb, 59px -84.6666666667px #fe0, 96px -394.6666666667px #00e6ff, 233px 19.3333333333px #00ffc8, 41px -259.6666666667px #00ff15, -186px -210.6666666667px #00ff9d, -6px -89.6666666667px #00b7ff, 43px -76.6666666667px #c4ff00;
+            	}
+            }
+             @-ms-keyframes bang {
+            	 to {
+            		 box-shadow:  -36px -208.6666666667px #ff0095, -36px -285.6666666667px #3f0, -4px -64.6666666667px #f2ff00, -212px -120.6666666667px #ae00ff, 146px -260.6666666667px #00eaff, -115px -290.6666666667px #5f0, 157px -362.6666666667px #4000ff, -96px -341.6666666667px #00e6ff, 193px 51.3333333333px #ff0400, -50px -44.6666666667px #0062ff, -185px -176.6666666667px #62ff00, -233px 38.3333333333px #0400ff, -142px 53.3333333333px #f200ff, -201px -214.6666666667px #0df, -41px -285.6666666667px #4800ff, 127px -315.6666666667px #ff00fb, 142px -87.6666666667px #6200ff, -149px -414.6666666667px #f200ff, -119px -89.6666666667px #00ff51, 243px 31.3333333333px #00ff1a, -130px -274.6666666667px #00fffb, 226px -227.6666666667px #0091ff, -197px -185.6666666667px #00ffd0, -185px -411.6666666667px #00c8ff, -160px 51.3333333333px #00a6ff, 146px -331.6666666667px #f09, 90px -43.6666666667px #00fff7, -237px -91.6666666667px #f0a, -194px -206.6666666667px #b3ff00, -196px -158.6666666667px #ffd900, -147px -291.6666666667px #ff8c00, 1px 63.3333333333px #000dff, 37px -334.6666666667px #fff200, 176px 57.3333333333px #00ffc8, 49px -293.6666666667px #c800ff, -18px 44.3333333333px #06f, 21px -248.6666666667px #ff001a, 185px -216.6666666667px #a6ff00, -10px -5.6666666667px #eaff00, 115px -172.6666666667px #2a00ff, -45px 60.3333333333px #00d0ff, 225px -151.6666666667px #fffb00, -87px -154.6666666667px #ffd000, 33px -342.6666666667px #ff00fb, 59px -84.6666666667px #fe0, 96px -394.6666666667px #00e6ff, 233px 19.3333333333px #00ffc8, 41px -259.6666666667px #00ff15, -186px -210.6666666667px #00ff9d, -6px -89.6666666667px #00b7ff, 43px -76.6666666667px #c4ff00;
+            	}
+            }
+             @keyframes bang {
+            	 to {
+            		 box-shadow:  -36px -208.6666666667px #ff0095, -36px -285.6666666667px #3f0, -4px -64.6666666667px #f2ff00, -212px -120.6666666667px #ae00ff, 146px -260.6666666667px #00eaff, -115px -290.6666666667px #5f0, 157px -362.6666666667px #4000ff, -96px -341.6666666667px #00e6ff, 193px 51.3333333333px #ff0400, -50px -44.6666666667px #0062ff, -185px -176.6666666667px #62ff00, -233px 38.3333333333px #0400ff, -142px 53.3333333333px #f200ff, -201px -214.6666666667px #0df, -41px -285.6666666667px #4800ff, 127px -315.6666666667px #ff00fb, 142px -87.6666666667px #6200ff, -149px -414.6666666667px #f200ff, -119px -89.6666666667px #00ff51, 243px 31.3333333333px #00ff1a, -130px -274.6666666667px #00fffb, 226px -227.6666666667px #0091ff, -197px -185.6666666667px #00ffd0, -185px -411.6666666667px #00c8ff, -160px 51.3333333333px #00a6ff, 146px -331.6666666667px #f09, 90px -43.6666666667px #00fff7, -237px -91.6666666667px #f0a, -194px -206.6666666667px #b3ff00, -196px -158.6666666667px #ffd900, -147px -291.6666666667px #ff8c00, 1px 63.3333333333px #000dff, 37px -334.6666666667px #fff200, 176px 57.3333333333px #00ffc8, 49px -293.6666666667px #c800ff, -18px 44.3333333333px #06f, 21px -248.6666666667px #ff001a, 185px -216.6666666667px #a6ff00, -10px -5.6666666667px #eaff00, 115px -172.6666666667px #2a00ff, -45px 60.3333333333px #00d0ff, 225px -151.6666666667px #fffb00, -87px -154.6666666667px #ffd000, 33px -342.6666666667px #ff00fb, 59px -84.6666666667px #fe0, 96px -394.6666666667px #00e6ff, 233px 19.3333333333px #00ffc8, 41px -259.6666666667px #00ff15, -186px -210.6666666667px #00ff9d, -6px -89.6666666667px #00b7ff, 43px -76.6666666667px #c4ff00;
+            	}
+            }
+             @-webkit-keyframes gravity {
+            	 to {
+            		 transform: translateY(200px);
+            		 -moz-transform: translateY(200px);
+            		 -webkit-transform: translateY(200px);
+            		 -o-transform: translateY(200px);
+            		 -ms-transform: translateY(200px);
+            		 opacity: 0;
+            	}
+            }
+             @-moz-keyframes gravity {
+            	 to {
+            		 transform: translateY(200px);
+            		 -moz-transform: translateY(200px);
+            		 -webkit-transform: translateY(200px);
+            		 -o-transform: translateY(200px);
+            		 -ms-transform: translateY(200px);
+            		 opacity: 0;
+            	}
+            }
+             @-o-keyframes gravity {
+            	 to {
+            		 transform: translateY(200px);
+            		 -moz-transform: translateY(200px);
+            		 -webkit-transform: translateY(200px);
+            		 -o-transform: translateY(200px);
+            		 -ms-transform: translateY(200px);
+            		 opacity: 0;
+            	}
+            }
+             @-ms-keyframes gravity {
+            	 to {
+            		 transform: translateY(200px);
+            		 -moz-transform: translateY(200px);
+            		 -webkit-transform: translateY(200px);
+            		 -o-transform: translateY(200px);
+            		 -ms-transform: translateY(200px);
+            		 opacity: 0;
+            	}
+            }
+             @keyframes gravity {
+            	 to {
+            		 transform: translateY(200px);
+            		 -moz-transform: translateY(200px);
+            		 -webkit-transform: translateY(200px);
+            		 -o-transform: translateY(200px);
+            		 -ms-transform: translateY(200px);
+            		 opacity: 0;
+            	}
+            }
+             @-webkit-keyframes position {
+            	 0%, 19.9% {
+            		 margin-top: 10%;
+            		 margin-left: 40%;
+            	}
+            	 20%, 39.9% {
+            		 margin-top: 40%;
+            		 margin-left: 30%;
+            	}
+            	 40%, 59.9% {
+            		 margin-top: 20%;
+            		 margin-left: 70%;
+            	}
+            	 60%, 79.9% {
+            		 margin-top: 30%;
+            		 margin-left: 20%;
+            	}
+            	 80%, 99.9% {
+            		 margin-top: 30%;
+            		 margin-left: 80%;
+            	}
+            }
+             @-moz-keyframes position {
+            	 0%, 19.9% {
+            		 margin-top: 10%;
+            		 margin-left: 40%;
+            	}
+            	 20%, 39.9% {
+            		 margin-top: 40%;
+            		 margin-left: 30%;
+            	}
+            	 40%, 59.9% {
+            		 margin-top: 20%;
+            		 margin-left: 70%;
+            	}
+            	 60%, 79.9% {
+            		 margin-top: 30%;
+            		 margin-left: 20%;
+            	}
+            	 80%, 99.9% {
+            		 margin-top: 30%;
+            		 margin-left: 80%;
+            	}
+            }
+             @-o-keyframes position {
+            	 0%, 19.9% {
+            		 margin-top: 10%;
+            		 margin-left: 40%;
+            	}
+            	 20%, 39.9% {
+            		 margin-top: 40%;
+            		 margin-left: 30%;
+            	}
+            	 40%, 59.9% {
+            		 margin-top: 20%;
+            		 margin-left: 70%;
+            	}
+            	 60%, 79.9% {
+            		 margin-top: 30%;
+            		 margin-left: 20%;
+            	}
+            	 80%, 99.9% {
+            		 margin-top: 30%;
+            		 margin-left: 80%;
+            	}
+            }
+             @-ms-keyframes position {
+            	 0%, 19.9% {
+            		 margin-top: 10%;
+            		 margin-left: 40%;
+            	}
+            	 20%, 39.9% {
+            		 margin-top: 40%;
+            		 margin-left: 30%;
+            	}
+            	 40%, 59.9% {
+            		 margin-top: 20%;
+            		 margin-left: 70%;
+            	}
+            	 60%, 79.9% {
+            		 margin-top: 30%;
+            		 margin-left: 20%;
+            	}
+            	 80%, 99.9% {
+            		 margin-top: 30%;
+            		 margin-left: 80%;
+            	}
+            }
+             @keyframes position {
+            	 0%, 19.9% {
+            		 margin-top: 10%;
+            		 margin-left: 40%;
+            	}
+            	 20%, 39.9% {
+            		 margin-top: 40%;
+            		 margin-left: 30%;
+            	}
+            	 40%, 59.9% {
+            		 margin-top: 20%;
+            		 margin-left: 70%;
+            	}
+            	 60%, 79.9% {
+            		 margin-top: 30%;
+            		 margin-left: 20%;
+            	}
+            	 80%, 99.9% {
+            		 margin-top: 30%;
+            		 margin-left: 80%;
+            	}
+            }
+            /* Modal.css */
+      .modal-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+
+      .modal {
+        background: #fff;
+        padding: 50px;
+        border-radius: 5px;
+        width: 500px;
+        max-width: 80%;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .modal-header, .modal-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .modal-header {
+        border-bottom: 1px solid #e5e5e5;
+      }
+
+      .modal-footer {
+        border-top: 1px solid #e5e5e5;
+        margin-top: 10px;
+      }
+
+      .close-button {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+    </style>
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>
